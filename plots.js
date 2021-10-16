@@ -39,8 +39,8 @@ function otu () {
         var topTenLabels = topTenIds.map(t => "OTU "+t);
         var trace1 = {x:topTenValues,y:topTenLabels, type:"bar", text:topTenHover, orientation:'h'};
         var barPlot = [trace1];
-        var layout = {title:"Top 10 Bacteria Cultures Found",yaxis:{autorange:'reversed'}}
-        Plotly.newPlot("bar", barPlot, layout);
+        var barLayout = {title:"Top 10 Bacteria Cultures Found",yaxis:{autorange:'reversed'}}
+        Plotly.newPlot("bar", barPlot, barLayout);
 
         // Plot bubble chart
         var trace2 = {
@@ -55,8 +55,8 @@ function otu () {
             }
         }
         var data = [trace2];
-        var layout = {title:"Bacteria Cultures Per Sample"}
-        Plotly.newPlot("bubble", data, layout);
+        var bubbleLayout = {title:"Bacteria Cultures Per Sample"}
+        Plotly.newPlot("bubble", data, bubbleLayout);
 
         // Display gauge chart
         var washFreq = idMeta.wfreq;
@@ -74,8 +74,8 @@ function otu () {
             }
         ];
         
-        var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        Plotly.newPlot("gauge", trace3, layout);
+        var gaugeLayout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+        Plotly.newPlot("gauge", trace3, gaugeLayout);
 
         })
         
