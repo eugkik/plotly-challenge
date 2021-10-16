@@ -1,9 +1,12 @@
-
 function otu () {
     var dropdownMenu = d3.select("#selDataset");
-    
+    var idIndex;
+
     // Get dropdown selection's Value property to use as JSON index number
     var idIndex = dropdownMenu.property("value");
+    if (idIndex == "") {
+        idIndex = 0;
+    }
 
     d3.json("data/samples.json").then(function(data) {
 
@@ -84,8 +87,7 @@ dropDown = d3.select("#selDataset");
 
 d3.json("data/samples.json").then(function(data) {
     var names = data.names;
-    option = dropDown.append("option");
-    option.text("");
+    //option = dropDown.append("option");
     names.forEach(function(name){
         option = dropDown.append("option");
         option.text(name);
@@ -94,3 +96,5 @@ d3.json("data/samples.json").then(function(data) {
 });
 
 d3.selectAll("#selDataset").on("change", otu);
+
+otu();
